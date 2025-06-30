@@ -1,3 +1,5 @@
+#xs已阅读
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -13,6 +15,7 @@ m=data.shape[1] #特征数
 
 #先得到各个因素（特征）的权重（可以用熵权法、层次分析法、重要性评分等等）
 #下面是用熵权法得到
+
 #首先对各个指标进行正向化操作（这里都是极大型指标）
 def Normalized2(data): #data是输入序列,这个是极大型指标的处理方式 输出也是序列
     min_data=min(data)
@@ -77,8 +80,13 @@ for i in range(n): #每个样本
 #下面进行建立综合评价模型得到每个样本的一个B向量（综合了各个因素后得到的一个评价等级隶属度）
 B_list=[] #存储每个 样本的最终评价等级隶属度,形式为[[],[]] 里面的是array形式
 for i in range(n): #每个样本
-    B_list.append(np.dot(feature_weights,evaluate_list[i]))
+    B_list.append(np.dot(feature_weights,evaluate_list[i])) #点乘，结束
 
+
+
+
+
+#可视化
 #注意可以绘制一些雷达图、柱形图来展现各个最终等级评分的隶属度的均值情况，或者绘制分布图（分类簇状柱形分布）展现各个等级评分隶属度的分布情况
 #下面进行绘制各个等级评分的最终隶属度分布情况
 class_list=[] #用于隶属度评分等级的标签
